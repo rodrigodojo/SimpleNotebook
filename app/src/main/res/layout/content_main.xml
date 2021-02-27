@@ -59,7 +59,7 @@
                             app:layout_constraintEnd_toStartOf="@+id/botaoAddFoto"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/manuser" />
+                            android:src="@drawable/manuser" />
 
 
                         <Button

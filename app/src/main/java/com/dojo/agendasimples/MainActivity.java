@@ -38,18 +38,16 @@ public class MainActivity extends AppCompatActivity {
     Button botaoAdicionar;
     Uri imagemUri = Uri.parse("android.resource://titopetri.com.agendinhanova/drawable/ic_user.png");
     long longClickedItemId;
+    boolean fotoCamera;
+    private Bitmap bitmap;
     CursorAdapter contactAdapter;
     TabHost tabHost;
+    Contato updatingContact;
+    DatabaseHandler dbHandler;
 
     private static final int EDIT = 0, DELETE = 1;
     public static final int TAB_CREATOR = 0;
     public static final int TAB_CONTACT_LIST = 1;
-
-    //Contato updatingContact;
-    //DatabaseHandler dbHandler;
-
-    boolean fotoCamera;
-    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         tabSpec.setIndicator("Agenda");
         tabHost.addTab(tabSpec);
 
-        //dbHandler = new DatabaseHandler(getApplicationContext());
+        dbHandler = new DatabaseHandler(getApplicationContext());
 
         registerForContextMenu(listaDeContatos);
         listaDeContatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -107,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         boolean success;
         String message;
-        /*
+
         if (updatingContact != null) {
             updatingContact.setNome(textoNome.getText().toString());
             updatingContact.setTelefone(textoNumero.getText().toString());
@@ -135,15 +133,15 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             message = "ocorreu um erro na operação";
-        }*/
+        }
 
-        //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
-    /*
+
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, view, menuInfo);
 
-        menu.setHeaderIcon(R.drawable.ic_edit);
+        menu.setHeaderIcon(R.drawable.manuser);
         menu.setHeaderTitle("Menu");
         menu.add(Menu.NONE, EDIT, menu.NONE, "Editar Contato");
         menu.add(Menu.NONE, DELETE, menu.NONE, "Deletar Contacto");
@@ -173,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
-    */
+
     private void popularLista() {
         //contactAdapter = dbHandler.getSimpleCursorAdapter(this);
         //listaDeContatos.setAdapter(contactAdapter);
