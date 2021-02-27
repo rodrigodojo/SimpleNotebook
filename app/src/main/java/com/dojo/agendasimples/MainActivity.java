@@ -37,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
     TextView textoTitulo;
     Button botaoAdicionar;
     Uri imagemUri = Uri.parse("android.resource://titopetri.com.agendinhanova/drawable/ic_user.png");
-
     long longClickedItemId;
     CursorAdapter contactAdapter;
-
     TabHost tabHost;
 
     private static final int EDIT = 0, DELETE = 1;
@@ -53,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     boolean fotoCamera;
     private Bitmap bitmap;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         textoEmail = (EditText) findViewById(R.id.campoEmail);
         listaDeContatos = (ListView) findViewById(R.id.listaContatos);
         imagemContato = (ImageView) findViewById(R.id.imagemContato);
-
         textoTitulo = (TextView) findViewById(R.id.textoTitulo);
         botaoAdicionar = (Button) findViewById(R.id.botaoAdicionarContato);
 
