@@ -107,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Contact Image"), 1);
     }
 
-
-
     public void clicaAdicionarContato(View v){
 
         boolean success;
@@ -194,10 +192,6 @@ public class MainActivity extends AppCompatActivity {
         imagemContato.setRotation(0);
     }
 
-
-
-
-
     public void clicaTirarFoto(View v){
         fotoCamera = true;
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -217,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     stream = getContentResolver().openInputStream(data.getData());
                     bitmap = BitmapFactory.decodeStream(stream);
-                    imagemContato.setImageBitmap(resizeImage(this, bitmap, 120, 120));
+                    imagemContato.setImageBitmap(resizeImage(this, bitmap, 160, 160));
                     imagemContato.setRotation(90);
                     imagemUri = data.getData();
                     imagemContato.setImageURI(data.getData());
@@ -235,7 +229,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }else{
-
             if (resultCode == RESULT_OK) {
                 if (requestCode == 1) {
                     imagemUri = data.getData();
@@ -243,7 +236,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-
     }
 
     private static Bitmap resizeImage(Context context, Bitmap bmpOriginal, float newWidth, float newHeight) {
@@ -263,7 +255,5 @@ public class MainActivity extends AppCompatActivity {
         //criando o novo BitMap com o novo tamanho
         novoBmp = Bitmap.createBitmap(bmpOriginal, 0, 0, w, h, matrix, true);
         return novoBmp;
-
     }
-
 }

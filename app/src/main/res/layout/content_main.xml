@@ -51,29 +51,30 @@
 
                         <ImageView
                             android:id="@+id/imagemContato"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginRight="8dp"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
                             android:contentDescription="@string/todo"
                             android:visibility="visible"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/botaoAddFoto"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/manuser"
-                            tools:visibility="visible" />
+                            tools:srcCompat="@drawable/manuser" />
 
 
                         <Button
                             android:id="@+id/botaoAddFoto"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginLeft="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            android:onClick="clicaCarregarImagem"
                             android:text="@string/biblioteca"
                             app:backgroundTint="@color/cardview_dark_background"
                             app:layout_constraintBottom_toTopOf="@+id/botaoTirarFoto"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/imagemContato"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,10 +84,12 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginLeft="16dp"
+                            android:onClick="clicaTirarFoto"
                             android:text="@string/camera"
                             app:backgroundTint="@color/cardview_dark_background"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@+id/botaoAddFoto"
+                            app:layout_constraintHorizontal_bias="0.825"
                             app:layout_constraintStart_toEndOf="@+id/imagemContato"
                             app:layout_constraintTop_toBottomOf="@+id/botaoAddFoto" />
 
@@ -139,7 +142,7 @@
                         android:id="@+id/botaoAdicionarContato"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Adicionar Contato"
+                        android:text="@string/botaoAdd"
                         app:backgroundTint="@color/cardview_dark_background" />
 
                 </LinearLayout>
